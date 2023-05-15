@@ -1,9 +1,9 @@
 import React from "react";
 
-function TodoItem() {
+function TodoItem(props) {
     return(
         <li>
-            <p>tarea</p>
+            <p>{props.text}</p>
         </li>
     )
 }

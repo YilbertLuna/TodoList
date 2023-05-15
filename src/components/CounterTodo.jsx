@@ -1,8 +1,8 @@
 import React from "react";
 
-function CounterTodo() {
+function CounterTodo({ total, completed }) {
     return(
-        <p>tienes tareas</p>
+        <p>tienes {total} tareas, y haz completado {completed}</p>
     )
 }
 
