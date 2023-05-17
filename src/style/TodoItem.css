@@ -1,0 +1,40 @@
+.Todo-Item-List{
+    width: 60%;
+    display: flex;
+    margin-left: 17%;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.todo-completed{
+    background-color: #61DAFA;
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+}
+
+.todo-deteled{
+    background-color: #61DAFA;
+    border: none;
+    border-radius: 50%;
+    left: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+}
+
+.item-list{
+    margin: 24px 0 24px 24px;
+    width: calc(100% - 120px);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    }
+
+.TodoItem-p--complete {
+  text-decoration: line-through;
+}
