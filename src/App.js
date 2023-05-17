@@ -8,11 +8,11 @@ function App() {
 
   const defaultTodos = [
     {text: 'create App Todos', completed: true},
-    {text: 'aprender en el proceso', completed: false}
+    {text: 'aprender en el proceso', completed: false},
   ]
 
   const totalTodos = defaultTodos.length
-  const completedTodos = defaultTodos.filter(item => !item.completed).length
+  const completedTodos = defaultTodos.filter(item => !!item.completed).length
 
   return (
     <div>
@@ -23,7 +23,7 @@ function App() {
 
       <ListTodo>
         {defaultTodos.map((item) => (
-          <TodoItem key={item.text} text={item.text}/>
+          <TodoItem key={item.text} text={item.text} completed={item.completed}/>
         ))}
       </ListTodo>
 
