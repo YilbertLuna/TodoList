@@ -3,7 +3,7 @@ import { CreateTodo } from "./components/CreateTodo";
 import { CounterTodo } from "./components/CounterTodo";
 import { ListTodo } from "./components/ListTodo";
 import { TodoItem } from "./components/TodoItem";
-
+import './style/App.css'
 const defaultTodos = [
   {text: 'create App Todos', completed: false},
   {text: 'aprender en el proceso', completed: false},
@@ -37,8 +37,6 @@ function App() {
 
       <CreateTodo/>
 
-      <CounterTodo total={totalTodos} completed={completeTodos}/>
-
       <ListTodo>
         {todos.map((item) => (
           <TodoItem
@@ -49,6 +47,8 @@ function App() {
             deleteTodo={() => deleteTodo(item.text)}
           />
         ))}
+
+        <CounterTodo total={totalTodos} completed={completeTodos}/>
       </ListTodo>
 
 
