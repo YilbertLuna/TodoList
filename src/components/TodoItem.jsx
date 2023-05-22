@@ -1,4 +1,5 @@
 import React from "react";
+import {AiOutlineCheck, AiOutlineClose} from "react-icons/ai";
 import '../style/TodoItem.css'
 
 function TodoItem({ toggleCompletedTodos, deleteTodo, text, completed }) {
@@ -6,11 +7,11 @@ function TodoItem({ toggleCompletedTodos, deleteTodo, text, completed }) {
     return(
         <li className="Todo-Item-List">
 
-            <button className="todo-completed" onClick={toggleCompletedTodos}>✔️</button>
+            <span onClick={toggleCompletedTodos}> <AiOutlineCheck className={`todo-completed ${completed && 'true'}`}/> </span>
 
             <p className={`item-list ${completed && "TodoItem-p--complete"}`}>{ text }</p>
 
-            <button className="todo-deteled" onClick={deleteTodo}>❌</button>
+            <span onClick={deleteTodo}> <AiOutlineClose className={`todo-deleted ${completed && 'delete'}`}/> </span>
 
         </li>
     )
