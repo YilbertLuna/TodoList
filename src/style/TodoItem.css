@@ -1,31 +1,34 @@
 .Todo-Item-List{
-    width: 60%;
+    width: 96%;
     display: flex;
-    margin-left: 17%;
+    margin-left: 2%;
     align-items: center;
-    border: 1px solid black;
-    border-radius: 20px;
+    justify-content: center;
+    border-bottom: 1px solid black;
     padding: 5px;
-    margin-top: 20px;
 }
 
 .todo-completed{
-    background-color: #61DAFA;
+    background-color: #193441;
     border: none;
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    font-size: 20px;
+    padding: 7px;
 }
 
-.todo-deteled{
-    background-color: #61DAFA;
+.todo-deleted{
+    background-color: #193441;
     border: none;
     border-radius: 50%;
     left: 50%;
     height: 40px;
     width: 40px;
-    font-size: 20px;
+    padding: 7px;
+}
+
+.delete:hover{
+    color: #ff0000;
 }
 
 .item-list{
@@ -34,8 +37,13 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
+    color: #ffffff;
 }
 
 .TodoItem-p--complete {
-  text-decoration: line-through;
+  text-decoration: line-through 2px #000000;
+}
+
+.true{
+    color: #008000;
 }

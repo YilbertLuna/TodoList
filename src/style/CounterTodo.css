@@ -1,6 +1,7 @@
 .counter-todo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
+    margin-left: 26%;
+    margin-top: 5%;
     font-size: 20px;
+    color: #ffffff;
 }

@@ -1,16 +1,16 @@
 .form-create-todo{
-    margin-top: 4%;
-    margin-left: 18%;
+    margin-top: 9%;
+    margin-left: 17%;
     padding: 0;
     border: 0;
-    width: 65%;
+    width: 68%;
     position: relative;
     display: inline-flex;
 }
 
 .text-create-todo{
     width: 93.4%;
-    height: 30px;
+    height: 60px;
     border: 1px solid black;
     border-radius: 0px;
     border-radius: 4px;
@@ -20,8 +20,10 @@
 }
 
 .button-create-todo{
+    width: 20%;
     border: 1px solid black;
     border-radius: 4px;
     outline: none;
-    background-color: rgba(125, 234, 241, 0.938);
+    background-color: #5DADE2;
+    font-size: 17px;
 }
