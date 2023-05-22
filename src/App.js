@@ -1,31 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import { CreateTodo } from "./components/CreateTodo";
 import { CounterTodo } from "./components/CounterTodo";
 import { ListTodo } from "./components/ListTodo";
 import { TodoItem } from "./components/TodoItem";
 
+const defaultTodos = [
+  {text: 'create App Todos', completed: false},
+  {text: 'aprender en el proceso', completed: false},
+]
+
 function App() {
 
-  const defaultTodos = [
-    {text: 'create App Todos', completed: true},
-    {text: 'aprender en el proceso', completed: false},
-  ]
+  const [todos, setTodos] = useState(defaultTodos)
 
-  const totalTodos = defaultTodos.length
-  const completedTodos = defaultTodos.filter(item => !!item.completed).length
+  const totalTodos = todos.length
+  const completeTodos = todos.filter(item => !!item.completed).length
+
+  // funcion para marcar las tareas como completadas
+  const toggleCompletedTodos = (text) => {
+    const todo = [...todos]
+    const todoIndex = todo.findIndex((todo) => todo.text === text)
+    if(todo[todoIndex].completed === false) todo[todoIndex].completed = true
+    else todo[todoIndex].completed = false
+    setTodos(todo)
+  }
+
+  const deleteTodo = (text) => {
+    const todo = [...todos]
+    const todoIndex = todo.findIndex((todo) => todo.text === text)
+    if(todo[todoIndex].completed === true) todo.splice(todoIndex, 1)
+    setTodos(todo)
+  }
 
   return (
     <div>
 
       <CreateTodo/>
 
-      <CounterTodo total={totalTodos} completed={completedTodos}/>
+      <CounterTodo total={totalTodos} completed={completeTodos}/>
 
       <ListTodo>
-        {defaultTodos.map((item) => (
-          <TodoItem key={item.text} text={item.text} completed={item.completed}/>
+        {todos.map((item) => (
+          <TodoItem
+            key={item.text}
+            text={item.text}
+            completed={item.completed}
+            toggleCompletedTodos={() => toggleCompletedTodos(item.text)}
+            deleteTodo={() => deleteTodo(item.text)}
+          />
         ))}
       </ListTodo>
+
 
     </div>
   );
