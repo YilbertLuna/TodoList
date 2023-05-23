@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import '../style/CreateTodo.css'
 
-function CreateTodo() {
+function CreateTodo({ addTodo }) {
 
     const [todoValue, setTodoValue] = useState('')
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-    }
+    const onSubmit = (event) => {
+        event.preventDefault();
+        addTodo(todoValue)
+    };
 
     const onChangeValue = (e) => {
         setTodoValue(e.target.value)

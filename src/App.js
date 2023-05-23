@@ -4,10 +4,8 @@ import { CounterTodo } from "./components/CounterTodo";
 import { ListTodo } from "./components/ListTodo";
 import { TodoItem } from "./components/TodoItem";
 import './style/App.css'
-const defaultTodos = [
-  {text: 'create App Todos', completed: false},
-  {text: 'aprender en el proceso', completed: false},
-]
+
+const defaultTodos = []
 
 function App() {
 
@@ -16,7 +14,6 @@ function App() {
   const totalTodos = todos.length
   const completeTodos = todos.filter(item => !!item.completed).length
 
-  // funcion para marcar las tareas como completadas
   const toggleCompletedTodos = (text) => {
     const todo = [...todos]
     const todoIndex = todo.findIndex((todo) => todo.text === text)
@@ -32,10 +29,19 @@ function App() {
     setTodos(todo)
   }
 
+  const addTodo = (text) => {
+    const newTodo = [...todos]
+    newTodo.push({
+      text,
+      completed: false,
+    })
+    setTodos(newTodo)
+  }
+
   return (
     <div>
 
-      <CreateTodo/>
+      <CreateTodo addTodo={addTodo}/>
 
       <ListTodo>
         {todos.map((item) => (
