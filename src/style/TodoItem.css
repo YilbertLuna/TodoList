@@ -9,7 +9,7 @@
 }
 
 .todo-completed{
-    background-color: #193441;
+    background-color: #85C1E9;
     border: none;
     border-radius: 50%;
     height: 40px;
@@ -18,7 +18,7 @@
 }
 
 .todo-deleted{
-    background-color: #193441;
+    background-color: #85C1E9;
     border: none;
     border-radius: 50%;
     left: 50%;
