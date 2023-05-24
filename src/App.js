@@ -5,28 +5,42 @@ import { ListTodo } from "./components/ListTodo";
 import { TodoItem } from "./components/TodoItem";
 import './style/App.css'
 
-const defaultTodos = []
-
 function App() {
 
-  const [todos, setTodos] = useState(defaultTodos)
+  const localStorageTodos = localStorage.getItem('TODOS_Value')
+  
+  let parsedtTodos;
+
+  if(!localStorageTodos) {
+    localStorage.getItem('TODOS_Value', JSON.stringify([]))
+    parsedtTodos = []
+  }else{
+    parsedtTodos = JSON.parse(localStorageTodos)
+  }
+
+  const [todos, setTodos] = useState(parsedtTodos)
 
   const totalTodos = todos.length
   const completeTodos = todos.filter(item => !!item.completed).length
+
+  const saveTodo = (item) =>{
+    localStorage.setItem('TODOS_Value', JSON.stringify(item))
+    setTodos(item)
+  }
 
   const toggleCompletedTodos = (text) => {
     const todo = [...todos]
     const todoIndex = todo.findIndex((todo) => todo.text === text)
     if(todo[todoIndex].completed === false) todo[todoIndex].completed = true
     else todo[todoIndex].completed = false
-    setTodos(todo)
+    saveTodo(todo)
   }
 
   const deleteTodo = (text) => {
     const todo = [...todos]
     const todoIndex = todo.findIndex((todo) => todo.text === text)
     if(todo[todoIndex].completed === true) todo.splice(todoIndex, 1)
-    setTodos(todo)
+    saveTodo(todo)
   }
 
   const addTodo = (text) => {
@@ -35,7 +49,7 @@ function App() {
       text,
       completed: false,
     })
-    setTodos(newTodo)
+    saveTodo(newTodo)
   }
 
   return (
@@ -56,7 +70,6 @@ function App() {
 
         <CounterTodo total={totalTodos} completed={completeTodos}/>
       </ListTodo>
-
 
     </div>
   );
