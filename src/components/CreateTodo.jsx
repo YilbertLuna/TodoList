@@ -8,6 +8,7 @@ function CreateTodo({ addTodo }) {
     const onSubmit = (event) => {
         event.preventDefault();
         addTodo(todoValue)
+        setTodoValue('')
     };
 
     const onChangeValue = (e) => {
@@ -16,7 +17,7 @@ function CreateTodo({ addTodo }) {
 
     return(
         <form onSubmit={onSubmit} className="form-create-todo">
-            <textarea
+            <input
             className="text-create-todo"
             placeholder="Crea una nueva tarea por hacer"
             value={todoValue}
