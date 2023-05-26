@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React,{ useContext, useState } from "react";
+import { appContext } from "../context/TodoContext";
 import '../style/CreateTodo.css'
 
-function CreateTodo({ addTodo }) {
+function CreateTodo() {
+
+    const {addTodo} = useContext(appContext)
 
     const [todoValue, setTodoValue] = useState('')
 
+  
     const onSubmit = (event) => {
         event.preventDefault();
         addTodo(todoValue)
@@ -14,6 +18,7 @@ function CreateTodo({ addTodo }) {
     const onChangeValue = (e) => {
         setTodoValue(e.target.value)
     }
+
 
     return(
         <form onSubmit={onSubmit} className="form-create-todo">
