@@ -17,10 +17,7 @@ function useLocalStorage() {
         setTodos(item)
     }
 
-    return [
-        todos,
-        saveTodo
-    ]
+    return{todos, saveTodo}
 }
 
 export { useLocalStorage }
