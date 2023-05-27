@@ -1,19 +1,29 @@
-import { useState } from "react";
+import{ useEffect, useState } from "react";
 
-function useLocalStorage() {
-    const localStorageTodos = localStorage.getItem('TODOS_Value')
+function useLocalStorage(value, initialValue) {
+    
+    const [todos, setTodos] = useState(initialValue)
 
-    let parsedtTodos;
+    useEffect(() => {
         
-    if(!localStorageTodos) {
-        localStorage.getItem('TODOS_Value', JSON.stringify([]))
-        parsedtTodos = []
-    }else parsedtTodos = JSON.parse(localStorageTodos)
+        setTimeout(() => {
+            const localStorageTodos = localStorage.getItem(value)
 
-    const [todos, setTodos] = useState(parsedtTodos)
+            let parsedTodos;
 
-    const saveTodo = (item) =>{
-        localStorage.setItem('TODOS_Value', JSON.stringify(item))
+            if(!localStorageTodos){
+                localStorage.getItem(value, JSON.stringify(initialValue))
+                parsedTodos = initialValue
+            }else{
+                parsedTodos = JSON.parse(localStorageTodos)
+                setTodos(parsedTodos)
+            }
+        }, 3000)
+        
+    })
+
+    const saveTodo = (item) => {
+        localStorage.setItem(value, JSON.stringify(item))
         setTodos(item)
     }
 
