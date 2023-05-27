@@ -3,20 +3,26 @@ import{ useEffect, useState } from "react";
 function useLocalStorage(value, initialValue) {
     
     const [todos, setTodos] = useState(initialValue)
+    const [loadoing, setLoaging] =useState(true)
 
     useEffect(() => {
-        
         setTimeout(() => {
-            const localStorageTodos = localStorage.getItem(value)
+            try {
+                const localStorageTodos = localStorage.getItem(value)
 
-            let parsedTodos;
+                let parsedTodos;
 
-            if(!localStorageTodos){
-                localStorage.getItem(value, JSON.stringify(initialValue))
-                parsedTodos = initialValue
-            }else{
-                parsedTodos = JSON.parse(localStorageTodos)
-                setTodos(parsedTodos)
+                if(!localStorageTodos){
+                    localStorage.getItem(value, JSON.stringify(initialValue))
+                    parsedTodos = initialValue
+                }else{
+                    parsedTodos = JSON.parse(localStorageTodos)
+                    setTodos(parsedTodos)
+                }
+
+                setLoaging(false)
+            } catch (error) {
+                setLoaging(false)
             }
         }, 3000)
         
@@ -27,7 +33,7 @@ function useLocalStorage(value, initialValue) {
         setTodos(item)
     }
 
-    return{todos, saveTodo}
+    return{todos, loadoing, saveTodo}
 }
 
 export { useLocalStorage }

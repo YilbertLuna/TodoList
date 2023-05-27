@@ -3,11 +3,13 @@ import { CreateTodo } from "./components/CreateTodo";
 import { CounterTodo } from "./components/CounterTodo";
 import { ListTodo } from "./components/ListTodo";
 import { TodoItem } from "./components/TodoItem";
+import { LoadoingTodos } from "./components/LoadingTodos";
 import { appContext } from "./context/TodoContext";
 
 function Appui() {
     const {
         todos,
+        loadoing,
         totalTodos,
         completeTodos,
         toggleCompletedTodos,
@@ -16,11 +18,13 @@ function Appui() {
     
       return (
         <>
-    
           <CreateTodo/>
     
           <ListTodo>
-            {todos.map((item) => (
+
+            {loadoing && (<LoadoingTodos/>) }
+            
+            {(!loadoing && todos.length === 0) ? <p>No hay Tareas</p> : todos.map((item) => (
               <TodoItem
                 key={item.text}
                 text={item.text}

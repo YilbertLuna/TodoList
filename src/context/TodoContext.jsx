@@ -7,6 +7,7 @@ function Context({ children }) {
 
     const {
         todos,
+        loadoing,
         saveTodo,
     } = useLocalStorage('TODOS_Value', [])
 
@@ -41,6 +42,7 @@ function Context({ children }) {
     return(
         <appContext.Provider value={{
             todos,
+            loadoing,
             totalTodos,
             completeTodos,
             addTodo,
