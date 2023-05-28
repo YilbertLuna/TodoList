@@ -24,7 +24,7 @@ function CreateTodo() {
         <form onSubmit={onSubmit} className="form-create-todo">
             <input
             className="text-create-todo"
-            placeholder="Crea una nueva tarea por hacer"
+            placeholder="Crea una nueva tarea"
             value={todoValue}
             onChange={onChangeValue}
             />
