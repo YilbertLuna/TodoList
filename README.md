@@ -1,4 +1,4 @@
-#App TodoList
+# App TodoList
 
 In this project, I’m creating a todoList to practice everything I’ve
 learned to date while learning new things as I developed the app
