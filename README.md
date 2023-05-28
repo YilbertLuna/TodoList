@@ -1,3 +1,8 @@
+#App TodoList
+
+In this project, I’m creating a todoList to practice everything I’ve
+learned to date while learning new things as I developed the app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
