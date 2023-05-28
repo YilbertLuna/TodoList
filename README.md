@@ -2,6 +2,7 @@
 
 In this project, I’m creating a todoList to practice everything I’ve
 learned to date while learning new things as I developed the app
+App link https://yilbertluna.github.io/TodoList/
 
 # Getting Started with Create React App
 
